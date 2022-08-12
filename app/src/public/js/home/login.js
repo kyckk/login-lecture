@@ -17,6 +17,9 @@ const id =document.querySelector("#id"),
             "content-Type":"application/json",
         },
         body: JSON.stringify(req),
-     });
+     })
+     .then((res) =>res.json())
+     .then(console.log);
+        //.then((res)=> console.log(res));
     }
     
