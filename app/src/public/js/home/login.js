@@ -10,6 +10,13 @@ const id =document.querySelector("#id"),
         id: id.value,
         psword: psword.value,
       };
-      console.log(req);
+      // stringify =문자열로 만들어줌 
+     fetch("/login",{
+        method:"post",
+        headers:{
+            "content-Type":"application/json",
+        },
+        body: JSON.stringify(req),
+     });
     }
     
