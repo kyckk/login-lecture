@@ -9,7 +9,7 @@ const home =require("./src/routes/home");//index.js파일을require로 불러온
 //앱세팅
 app.set("views","./src/views");
 app.set("view engine","ejs");
-
+app.use(express.static(`${__dirname}/src/public`));//${__dirname}현재 위치(app.js)를반환해주고 express.static=정적경로로 추가해준다
 
 app.use("/", home); //use -> 미들 웨어를 등록해주는 메서드 .
 
