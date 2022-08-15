@@ -19,7 +19,15 @@ const id =document.querySelector("#id"),
         body: JSON.stringify(req),
      })
      .then((res) =>res.json())
-     .then(console.log);
+     .then((res)=>{
         //.then((res)=> console.log(res));
-    }
-    
+        if(res.success){
+          location.href ="/";
+        }else{
+          alert(res.msg);
+        }
+    })
+    .catch((err)=>{
+      console.err("로그인 중에러 발생");
+    });
+  }
