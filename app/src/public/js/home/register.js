@@ -1,17 +1,22 @@
 "use strict";
 const id =document.querySelector("#id"),
+    name=document.querySelector("#name"),
     psword=document.querySelector("#psword"),
-    loginBtn =document.querySelector("#button");
+    confirmPsword=document.querySelector("#confirm-psword"),
+    registerBtn =document.querySelector("#button");
+    
+    registerBtn.addEventListener("click",register);
 
-    loginBtn.addEventListener("click",login);
-
-    function login(){
+    function register(){
       const req={
         id: id.value,
+        name: name.value,
         psword: psword.value,
+        confirmPsword:confirmPsword.value,
       };
+      console.log(req);
       // stringify =문자열로 만들어줌 
-     fetch("/login",{
+     fetch("/register",{
         method:"post",
         headers:{
             "content-Type":"application/json",
@@ -22,7 +27,7 @@ const id =document.querySelector("#id"),
      .then((res)=>{
         //.then((res)=> console.log(res));
         if(res.success){
-          location.href ="/";
+          location.href ="/login";
         }else{
           alert(res.msg);
         }
